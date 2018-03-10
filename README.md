@@ -352,15 +352,15 @@ after each phase in a tricky test.
 2. Update the case for `Let` in `compileEnv` to reset
    stack slots after they go out of "scope";
 
-3. Make sure all your egg-eater tests pass!
+3. Fill in the `print_tuple()` function in `types.c`. 
 
-4. Fill in the four functions in `gc.c`; feel free to use
+4. Make sure all your egg-eater tests pass!
+
+5. Fill in the four functions in `gc.c`; feel free to use
    or disregard the helper code provided that provides
    C types for our `Value` and conversions between those
    and plain `int` (which is how everything is actually
    stored on the heap.)
-
-5. Fill in the `print_tuple()` function in `types.c`. 
 
 6. Test your code, and ensure that the `fox` tests pass!
 
