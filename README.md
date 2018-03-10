@@ -7,7 +7,7 @@ That is, you have a core language with functions, numbers, booleans,
 and _tuples_, but now, you will extend the C **run-time** to reclaim
 and recycle (heap) memory that is no longer being used.
 
-Note that you should need to write about 300-400 lines in `gc.c` 
+Note that you should need to write about 300 lines in `gc.c` 
 (in addition to < 10 *new* lines in the `lib/Language/Fox/*.hs`)
 to complete this assignment.
 
