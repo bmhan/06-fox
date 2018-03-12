@@ -1,9 +1,8 @@
 ######################################################
 COURSE=cs131w
-ASGN=05
+ASGN=06
 COMPILER=fox
 EXT=fox
-GROUP=group.txt
 CLANG=clang -g -m32 -mstackrealign
 HEAP=100000
 ######################################################
