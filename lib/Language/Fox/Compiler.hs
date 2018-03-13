@@ -57,7 +57,7 @@ compile (Prog ds e) = compileBody emptyEnv e
                    ++ concatMap compileDecl ds
 
 compileDecl :: ADcl -> [Instruction]
-compileDecl (Decl f xs e _) = ILabel (Builtin (bindId f))
+compileDecl (Decl f xs e t) = ILabel (DefStart (bindId f) 0)
                             : compileBody env e
   where
     env                     = fromListEnv (zip (bindId <$> xs) [-2, -3..])
@@ -129,7 +129,7 @@ compileEnv env (Tuple es _)      = error "TBD:compileEnv:Tuple"
 
 compileEnv env (GetItem vE vI _) = error "TBD:compileEnv:GetItem"
 
-compileEnv env (App f vs _)      = call (Builtin f) (param env <$> vs)
+compileEnv env (App f vs _)      = call (DefStart f 0) (param env <$> vs)
 
 compileImm :: Env -> IExp -> Instruction
 compileImm env v = IMov (Reg EAX) (immArg env v)
