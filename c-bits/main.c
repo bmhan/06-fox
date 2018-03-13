@@ -5,7 +5,7 @@
 #include "types.h"
 #include "gc.h"
 
-#define USE_GC  1    // switch this to 1 to use your gc(...)
+#define USE_GC  0    // switch this to 1 to use your gc(...)
 
 extern int  our_code_starts_here()    asm("our_code_starts_here");
 extern void error() 		      asm("error");

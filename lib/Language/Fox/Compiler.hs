@@ -124,8 +124,8 @@ compileEnv env (If v e1 e2 l)    = assertType env v TBoolean
     i1s                          = compileEnv env e1
     i2s                          = compileEnv env e2
 
-compileEnv env (Tuple es _)      = error "TBD:compileEnv:Tuple"
-
+compileEnv env (Tuple es l)      = tupleReserve l (tupleSize n) ++		-- DO NOT MODIFY THIS FIRST LINE 
+		   		   error "TBD:compileEnv:Tuple"
 
 compileEnv env (GetItem vE vI _) = error "TBD:compileEnv:GetItem"
 
