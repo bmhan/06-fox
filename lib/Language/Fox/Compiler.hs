@@ -124,7 +124,7 @@ compileEnv env (If v e1 e2 l)    = assertType env v TBoolean
     i1s                          = compileEnv env e1
     i2s                          = compileEnv env e2
 
-compileEnv env (Tuple es l)      = tupleReserve l (tupleSize n) ++		-- DO NOT MODIFY THIS FIRST LINE 
+compileEnv env (Tuple es l)      = tupleReserve l (tupleSize (length es)) ++  -- DO NOT MODIFY THIS LINE 
 		   		   error "TBD:compileEnv:Tuple"
 
 compileEnv env (GetItem vE vI _) = error "TBD:compileEnv:GetItem"
@@ -307,6 +307,17 @@ tupleReserve l bytes
       IMov (Reg ESI) (Reg EAX)
     , ILabel (MemCheck (snd l))
     ]
+
+
+-- | 'tupleSize n' returns the number of bytes to allocate for a tuple with 'n' elements
+
+tupleSize :: Int -> Int
+tupleSize n = 4 * roundToEven (n + 2)     -- add 2 for size, GC-WORD
+
+roundToEven :: Int -> Int
+roundToEven n
+  | n `mod` 2 == 0 = n
+  | otherwise      = n + 1
 
 --------------------------------------------------------------------------------
 -- | Representing Values
