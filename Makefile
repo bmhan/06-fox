@@ -3,7 +3,7 @@ COURSE=cs131w
 ASGN=06
 COMPILER=fox
 EXT=fox
-CLANG=clang -g -m32 -mstackrealign
+CLANG=clang -g -m32 -mstackrealign -fsanitize=address
 HEAP=100000
 ######################################################
 
