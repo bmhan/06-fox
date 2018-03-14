@@ -132,7 +132,7 @@ labelAsm (BranchTrue i) = printf "label_%d_true"         i
 labelAsm (BranchDone i) = printf "label_%d_done"         i
 labelAsm (MemCheck   i) = printf "label_memcheck_%d"     i
 labelAsm (DefStart f i) = printf "label_%d_def_%s_start" i f
-labelAsm (DefEnd   f i) = printf "label_%d_def_%s_start" i f
+labelAsm (DefEnd   f i) = printf "label_%d_def_%s_end"   i f
 labelAsm (DynamicErr e) = dynErrorLabel e
 labelAsm (Builtin f)    = f
 
